@@ -1,0 +1,17 @@
+html, body { min-height: 100%; }
+body {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-top: calc(20px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+.anim-pop { animation: pop .45s ease; }
+.anim-wiggle { animation: wiggle .45s ease; }
+@keyframes pop { 0% { transform: scale(.8) } 60% { transform: scale(1.12) } 100% { transform: scale(1) } }
+@keyframes wiggle { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-7px) } 75% { transform: translateX(7px) } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+.big-num { font-family: var(--font-display), "Trebuchet MS", sans-serif; font-weight: 800; font-size: clamp(4rem,16vw,7rem); line-height: .9; font-variant-numeric: tabular-nums; }
+.tile-lbl { font-family: var(--font-body), system-ui, sans-serif; font-weight: 800; font-size: clamp(.7rem,2.6vw,.9rem); line-height: 1.1; text-align: center; }
+.tile-done { position: absolute; top: 7px; right: 7px; }
